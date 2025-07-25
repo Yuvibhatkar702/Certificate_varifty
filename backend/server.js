@@ -11,16 +11,41 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-const uri = process.env.MONGODB_URI || "mongodb+srv://yuvi7767055408:HZaANM9sxi8rKgVR@cluster0.gqehu6m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-mongoose.connect(uri);
-const connection = mongoose.connection;
-connection.once('open', () => {
+const uri = process.env.MONGODB_URI || "mongodb+srv://yuvi7767055408:HZaANM9sxi8rKgVR@cluster0.gqehu6m.mongodb.net/certificateDB?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
   console.log("MongoDB database connection established successfully");
+})
+.catch((error) => {
+  console.error("MongoDB connection error:", error);
+});
+
+const connection = mongoose.connection;
+connection.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
+
+connection.on('disconnected', () => {
+  console.log('MongoDB disconnected');
 });
 
 // API Routes
 const verifyRouter = require('./routes/verify');
 const certificateRouter = require('./routes/certificates');
+
+// Health check route
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    message: 'Server is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
 
 app.use('/api/verify', verifyRouter);
 app.use('/api/certificates', certificateRouter);
@@ -35,6 +60,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running on port: ${port}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
