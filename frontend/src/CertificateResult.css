@@ -1,0 +1,390 @@
+/* Certificate Result Page Styles */
+.result-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #1e293b, #334155, #475569);
+  padding: 20px;
+}
+
+.result-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 30px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+/* Success Display */
+.certificate-display {
+  text-align: center;
+}
+
+.certificate-header {
+  margin-bottom: 40px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.status-badge.success {
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+}
+
+.status-badge.error {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  color: white;
+}
+
+.certificate-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+/* Certificate Card */
+.certificate-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-border {
+  border: 3px solid #3b82f6;
+  border-radius: 12px;
+  padding: 40px;
+  position: relative;
+}
+
+.certificate-border::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #3b82f6;
+  border-radius: 8px;
+  opacity: 0.3;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-section h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.logo-section span {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.certificate-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.certificate-title h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.decorative-line {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #3b82f6, #1d4ed8);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Certificate Details */
+.certificate-details {
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row .label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.detail-row .value {
+  font-weight: 500;
+  color: #1e293b;
+  text-align: right;
+}
+
+.success-text {
+  color: #059669 !important;
+  font-weight: 600 !important;
+}
+
+/* Certificate Footer */
+.certificate-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.verification-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.seal-icon {
+  font-size: 18px;
+}
+
+/* Action Buttons */
+.action-section {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-btn, .share-btn, .retry-btn, .support-btn {
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 16px;
+}
+
+.download-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.download-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.share-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.share-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.retry-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.retry-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.support-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.support-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Error Display */
+.error-display {
+  text-align: center;
+}
+
+.error-header {
+  margin-bottom: 40px;
+}
+
+.error-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.error-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.error-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.error-card > p {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.attempted-details {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.attempted-details h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+.suggestions {
+  text-align: left;
+  background: #fef3c7;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.suggestions h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 15px;
+}
+
+.suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions li {
+  color: #78350f;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.suggestions li::before {
+  content: '•';
+  color: #f59e0b;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .result-container {
+    padding: 0 10px;
+  }
+  
+  .certificate-border {
+    padding: 20px;
+  }
+  
+  .certificate-header h1,
+  .error-header h1 {
+    font-size: 28px;
+  }
+  
+  .action-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .download-btn, .share-btn, .retry-btn, .support-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .detail-row .value {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-card {
+    padding: 10px;
+  }
+  
+  .certificate-border {
+    padding: 15px;
+  }
+  
+  .error-card {
+    padding: 25px;
+  }
+}
