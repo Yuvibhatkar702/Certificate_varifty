@@ -26,7 +26,12 @@ function App() {
     setResult(null);
     
     try {
-      const response = await axios.post('http://localhost:5000/verify', formData);
+      // Use relative path for API calls in production
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? '/api/verify' 
+        : 'http://localhost:5000/api/verify';
+        
+      const response = await axios.post(apiUrl, formData);
       
       // Add a small delay to make it feel more realistic
       setTimeout(() => {
