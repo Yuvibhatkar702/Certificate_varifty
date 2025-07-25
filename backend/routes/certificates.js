@@ -15,4 +15,11 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Debug route to list all certificates (remove in production)
+router.route('/list').get((req, res) => {
+  Certificate.find()
+    .then(certificates => res.json(certificates))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
