@@ -1,0 +1,28 @@
+[build]
+  # Build command for the frontend
+  command = "npm run build:netlify"
+  # Directory to publish (the build output)
+  publish = "frontend/build"
+  
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "18"
+  
+# Redirect rules for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Netlify Functions for backend (optional)
+[functions]
+  directory = "netlify/functions"
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

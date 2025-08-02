@@ -26,10 +26,22 @@ function App() {
     setResult(null);
     
     try {
-      // Use relative path for API calls in production
-      const apiUrl = process.env.NODE_ENV === 'production' 
-        ? '/api/verify' 
-        : 'http://localhost:5000/api/verify';
+      // Use Netlify Functions for production, or detect deployment environment
+      const isNetlify = window.location.hostname.includes('netlify.app') || 
+                       window.location.hostname.includes('netlify.com');
+      const isRender = window.location.hostname.includes('render.com');
+      
+      let apiUrl;
+      if (isNetlify) {
+        // Netlify Functions
+        apiUrl = '/.netlify/functions/verify';
+      } else if (isRender || process.env.NODE_ENV === 'production') {
+        // Render deployment
+        apiUrl = '/api/verify';
+      } else {
+        // Local development
+        apiUrl = 'http://localhost:5000/api/verify';
+      }
         
       const response = await axios.post(apiUrl, formData);
       
